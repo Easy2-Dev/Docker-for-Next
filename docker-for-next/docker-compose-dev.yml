@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  next-development:
+    user: "1000:1000"
+    build:
+      context: .
+      dockerfile: ./dockerfiles/dev.Dockerfile
+    image: $APP_NAME
+    container_name: $APP_NAME
+    volumes:
+      - $APP_VOLUMES_SRC:/app
+      - $APP_VOLUMES_SRC/node_modules:/app/node_modules
+    ports:
+      - $PORT:3000
+    command: npm run dev

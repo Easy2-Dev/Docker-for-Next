@@ -1,0 +1,10 @@
+version: "3.8"
+
+services:
+  with-docker-multi-env-production:
+    build:
+      context: .
+      dockerfile: ./prod.Dockerfile
+    image: with-docker-multi-env-production
+    ports:
+      - 3003:3000
